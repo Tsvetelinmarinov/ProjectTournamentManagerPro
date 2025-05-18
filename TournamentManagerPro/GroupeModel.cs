@@ -627,6 +627,7 @@ namespace TournamentManagerPro
         {
             // opacity: 0.0 (напълно прозрачно) до 1.0 (напълно непрозрачно)
             Bitmap bmp = new Bitmap(image.Width, image.Height);
+
             using (Graphics g = Graphics.FromImage(bmp))
             {
                 ColorMatrix matrix = new ColorMatrix();
@@ -636,11 +637,15 @@ namespace TournamentManagerPro
                 g.DrawImage(
                     image,
                     new Rectangle(0, 0, bmp.Width, bmp.Height),
-                    0, 0, image.Width, image.Height,
+                    0,
+                    0, 
+                    image.Width, 
+                    image.Height,
                     GraphicsUnit.Pixel,
                     attributes
                 );
             }
+
             return bmp;
         }
     }
