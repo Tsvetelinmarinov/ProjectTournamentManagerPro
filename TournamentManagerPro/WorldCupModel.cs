@@ -1,19 +1,18 @@
 ﻿/**
  * Tournament Manager Pro
  * 
- * GroupeModel32 - GUI of the tournament Team - Groupe Model with 32 teams in 8 groups
+ * ChampionsLeagueModel - GUI of the champions league model view
  */
 
-using System;
+using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Windows.Forms;
-
+using System;
 
 namespace TournamentManagerPro
 {
-   
-    internal class GroupeModel : Form
+
+    internal class WorldCupModel : Form
     {
 
         //Label for froup A
@@ -63,12 +62,6 @@ namespace TournamentManagerPro
 
         //Panel for group H
         private Panel groupH;
-
-        //ForeColor for the labels
-        private Color definedFore = Color.FromArgb(100, 50, 50, 50);
-
-        //ToolTip
-        private ToolTip tip = new ToolTip();
 
         //Label for team 1 in group 1
         private BorderedLabel team11;
@@ -167,7 +160,7 @@ namespace TournamentManagerPro
         private BorderedLabel team84;
 
         //Create array of BorderedLabels(the slots) to use it in the void that manage the teams
-        private BorderedLabel[] slots = new BorderedLabel[16];
+        private BorderedLabel[] slots = new BorderedLabel[32];
 
         //Button "Manage"
         private Button manage;
@@ -178,37 +171,28 @@ namespace TournamentManagerPro
         //Button "Fast Manage"
         private Button fastManage;
 
+        //ToolTip
+        private ToolTip tip = new ToolTip();
 
 
+        /*
+         * 
+         */
+        public WorldCupModel() { BuildInterface(); }
 
 
-        //Build the GUI
-        public void BuildGUIWith32()
-        {
-
-            //fix the window
-            Text = "Team - Groupe Model";
-            Size = new Size(1480, 800);
-            StartPosition = FormStartPosition.CenterScreen;
-            BackColor = Color.WhiteSmoke;
-            Visible = true;
-            Icon = Properties.Resources.icon;
-            MaximizeBox = false;
-            MinimumSize = Size;
-            MaximumSize = Size;
-
-        }
-  
-        
-        public void BuildGUIWith16()
+        /**
+         * Build the GUi
+         */
+        private void BuildInterface()
         {
 
             Text = "Team - Groupe Model";
-            Size = new Size(1480, 600);
+            Size = new Size(1480, 900);
             StartPosition = FormStartPosition.CenterScreen;
             BackColor = Color.WhiteSmoke;
             Icon = Properties.Resources.icon;
-            BackgroundImage = SetImage(Properties.Resources.euroFrance, 0.5f);
+            BackgroundImage = SetImage(Properties.Resources.worldCup, 0.8f);
             BackgroundImageLayout = ImageLayout.Stretch;
             Visible = true;
             MaximizeBox = false;
@@ -218,18 +202,18 @@ namespace TournamentManagerPro
             //Group A
             groupALabel = new Label()
             {
-                Text = "Group 1",
+                Text = "Group A",
                 Font = new Font("Cascadia Code", 14, FontStyle.Italic),
-                ForeColor = definedFore,
+                ForeColor = Color.GhostWhite,
                 TextAlign = ContentAlignment.MiddleCenter,
                 BackColor = Color.Transparent,
-                Bounds = new Rectangle(200, 100, 100, 20)
+                Bounds = new Rectangle(200, 50, 100, 20)
             };
             Controls.Add(groupALabel);
 
             groupA = new Panel()
             {
-                Bounds = new Rectangle(100, 130, 300, 300),
+                Bounds = new Rectangle(100, 80, 300, 300),
                 BackColor = Color.Transparent,
                 BorderStyle = BorderStyle.FixedSingle
             };
@@ -238,18 +222,18 @@ namespace TournamentManagerPro
             //Group B
             groupBLabel = new Label()
             {
-                Text = "Group 2",
+                Text = "Group B",
                 Font = groupALabel.Font,
-                ForeColor = definedFore,
+                ForeColor = Color.GhostWhite,
                 TextAlign = ContentAlignment.MiddleCenter,
                 BackColor = Color.Transparent,
-                Bounds = new Rectangle(520, 100, 100, 20)
+                Bounds = new Rectangle(520, 50, 100, 20)
             };
             Controls.Add(groupBLabel);
 
             groupB = new Panel()
             {
-                Bounds = new Rectangle(420, 130, 300, 300),
+                Bounds = new Rectangle(420, 80, 300, 300),
                 BackColor = Color.Transparent,
                 BorderStyle = BorderStyle.FixedSingle,
             };
@@ -258,18 +242,18 @@ namespace TournamentManagerPro
             //Group C
             groupCLabel = new Label()
             {
-                Text = "Group 3",
+                Text = "Group C",
                 Font = groupALabel.Font,
-                ForeColor = definedFore,
+                ForeColor = Color.GhostWhite,
                 TextAlign = ContentAlignment.MiddleCenter,
                 BackColor = Color.Transparent,
-                Bounds = new Rectangle(840, 100, 100, 20)
+                Bounds = new Rectangle(840, 50, 100, 20)
             };
             Controls.Add(groupCLabel);
 
             groupC = new Panel()
             {
-                Bounds = new Rectangle(740, 130, 300, 300),
+                Bounds = new Rectangle(740, 80, 300, 300),
                 BackColor = Color.Transparent,
                 BorderStyle = BorderStyle.FixedSingle
             };
@@ -278,22 +262,102 @@ namespace TournamentManagerPro
             //Group D
             groupDLabel = new Label()
             {
-                Text = "Group 4",
+                Text = "Group D",
                 Font = groupALabel.Font,
-                ForeColor = definedFore,
+                ForeColor = Color.GhostWhite,
                 TextAlign = ContentAlignment.MiddleCenter,
                 BackColor = Color.Transparent,
-                Bounds = new Rectangle(1160, 100, 100, 20)
+                Bounds = new Rectangle(1160, 50, 100, 20)
             };
             Controls.Add(groupDLabel);
 
             groupD = new Panel()
             {
-                Bounds = new Rectangle(1060, 130, 300, 300),
+                Bounds = new Rectangle(1060, 80, 300, 300),
                 BackColor = Color.Transparent,
                 BorderStyle = BorderStyle.FixedSingle
             };
             Controls.Add(groupD);
+
+            //Group E
+            groupELabel = new Label()
+            {
+                Text = "Group E",
+                Font = groupALabel.Font,
+                ForeColor = Color.GhostWhite,
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.Transparent,
+                Bounds = new Rectangle(200, 430, 100, 20)
+            };
+            Controls.Add(groupELabel);
+
+            groupE = new Panel()
+            {
+                Bounds = new Rectangle(100, 460, 300, 300),
+                BackColor = Color.Transparent,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            Controls.Add(groupE);
+
+            //Group F
+            groupFLabel = new Label()
+            {
+                Text = "Group F",
+                Font = groupALabel.Font,
+                ForeColor = Color.GhostWhite,
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.Transparent,
+                Bounds = new Rectangle(520, 430, 100, 20)
+            };
+            Controls.Add(groupFLabel);
+
+            groupF = new Panel()
+            {
+                Bounds = new Rectangle(420, 460, 300, 300),
+                BackColor = Color.Transparent,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            Controls.Add(groupF);
+
+            //Group G
+            groupGLabel = new Label()
+            {
+                Text = "Group G",
+                Font = groupALabel.Font,
+                ForeColor = Color.GhostWhite,
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.Transparent,
+                Bounds = new Rectangle(840, 430, 100, 20)
+            };
+            Controls.Add(groupGLabel);
+
+            groupG = new Panel()
+            {
+                Bounds = new Rectangle(740, 460, 300, 300),
+                BackColor = Color.Transparent,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            Controls.Add(groupG);
+
+            //Group H
+            groupHLabel = new Label()
+            {
+                Text = "Group H",
+                Font = groupALabel.Font,
+                ForeColor = Color.GhostWhite,
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.Transparent,
+                Bounds = new Rectangle(1180, 430, 100, 20)
+            };
+            Controls.Add(groupHLabel);
+
+            groupH = new Panel()
+            {
+                Bounds = new Rectangle(1080, 460, 300, 300),
+                BackColor = Color.Transparent,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            Controls.Add(groupH);
 
             //Create the slots for the team names
             //16 teams - 4 groups. 4 teams in each goup
@@ -316,15 +380,32 @@ namespace TournamentManagerPro
             slots[13] = team42;
             slots[14] = team43;
             slots[15] = team44;
+            slots[16] = team51;
+            slots[17] = team52;
+            slots[18] = team53;
+            slots[19] = team54;
+            slots[20] = team61;
+            slots[21] = team62;
+            slots[22] = team63;
+            slots[23] = team64;
+            slots[24] = team71;
+            slots[25] = team72;
+            slots[26] = team73;
+            slots[27] = team74;
+            slots[28] = team81;
+            slots[29] = team82;
+            slots[30] = team83;
+            slots[31] = team84;
 
             //Button manage
             manage = new Button()
             {
                 Text = "Разпредели",
                 Font = new Font("Seoge UI", 12, FontStyle.Regular),
-                Bounds = new Rectangle(310, 480, 220, 35)
+                Bounds = new Rectangle(310, 820, 220, 35),
+                BackColor = Color.GhostWhite
             };
-            manage.Click += (sender, eventArgs) => { ManageTeams(slots, new Database().euroTeams); };
+            manage.Click += (sender, eventArgs) => { ManageTeams(slots, new Database().worldCupTeam); };
             tip.SetToolTip(manage, "Започни разпределянето на отборите по групе един по един");
             Controls.Add(manage);
 
@@ -333,7 +414,8 @@ namespace TournamentManagerPro
             {
                 Text = "Изчисти слотовете",
                 Font = manage.Font,
-                Bounds = new Rectangle(580, 480, 300, 35)
+                Bounds = new Rectangle(580, 820, 300, 35),
+                BackColor = Color.GhostWhite
             };
             reset.Click += (sender, eventArgs) =>
             {
@@ -344,13 +426,13 @@ namespace TournamentManagerPro
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question
                     ) == DialogResult.Yes
-                ) {
-                    
+                )
+                {
+
                     foreach (BorderedLabel slot in slots)
                     {
                         slot.Text = string.Empty;
                     }
-
                 }
             };
             Controls.Add(reset);
@@ -360,24 +442,26 @@ namespace TournamentManagerPro
             {
                 Text = "Моментално разпределение",
                 Font = manage.Font,
-                Bounds = new Rectangle(930, 480, 300, 35)
+                Bounds = new Rectangle(930, 820, 300, 35),
+                BackColor = Color.GhostWhite
             };
             tip.SetToolTip(
                 fastManage,
                 "Моментално разпределение на отборите по групите наведнъж"
             );
-            fastManage.Click += (s, e) => 
-            { 
+            fastManage.Click += (sender, eventArgs) =>
+            {
                 if (
-                    MessageBox.Show(
-                        "Моменталното разпределение не дава възможност за съгласие с подредбата на отборите " +
-                        "и отборите ще бъдат разпределени моментално.  Желаете ли да продължите?",
-                        "Team - Groupe Model",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question
-                    ) == DialogResult.Yes
-                ) {
-                    FastManage(slots, new Database().euroTeams);
+                   MessageBox.Show(
+                       "Моменталното разпределение не дава възможност за съгласие с подредбата на отборите " +
+                       "и отборите ще бъдат разпределени моментално.  Желаете ли да продължите?",
+                       "Team - Groupe Model",
+                       MessageBoxButtons.YesNo,
+                       MessageBoxIcon.Question
+                   ) == DialogResult.Yes
+                )
+                {
+                    FastManage(slots, new Database().worldCupTeam);
                 }
             };
             Controls.Add(fastManage);
@@ -409,6 +493,22 @@ namespace TournamentManagerPro
                 team42 = new BorderedLabel(),
                 team43 = new BorderedLabel(),
                 team44 = new BorderedLabel(),
+                team51 = new BorderedLabel(),
+                team52 = new BorderedLabel(),
+                team53 = new BorderedLabel(),
+                team54 = new BorderedLabel(),
+                team61 = new BorderedLabel(),
+                team62 = new BorderedLabel(),
+                team63 = new BorderedLabel(),
+                team64 = new BorderedLabel(),
+                team71 = new BorderedLabel(),
+                team72 = new BorderedLabel(),
+                team73 = new BorderedLabel(),
+                team74 = new BorderedLabel(),
+                team81 = new BorderedLabel(),
+                team82 = new BorderedLabel(),
+                team83 = new BorderedLabel(),
+                team84 = new BorderedLabel(),
             };
 
             // Configure each slot
@@ -416,7 +516,7 @@ namespace TournamentManagerPro
             {
                 slot.Size = new Size(300, 75);
                 slot.Font = new Font("Cascadia Code", 14, FontStyle.Italic);
-                slot.ForeColor = Color.FromArgb(120, 160, 60, 60);
+                slot.ForeColor = Color.Snow;
                 slot.BorderColor = Color.FromArgb(120, 60, 60, 60);
                 slot.TextAlign = ContentAlignment.MiddleCenter;
                 slot.BackColor = Color.Transparent;
@@ -425,21 +525,37 @@ namespace TournamentManagerPro
             // Add slots to their respective group panels
             for (int i = 0; i < slots.Length; i++)
             {
-                if (i < 4)
+                if (i <= 3)
                 {
                     groupA.Controls.Add(slots[i]);
                 }
-                else if (i < 8)
+                else if (i >= 4 && i <= 7)
                 {
                     groupB.Controls.Add(slots[i]);
                 }
-                else if (i < 12)
+                else if (i >= 8 && i <= 11)
                 {
                     groupC.Controls.Add(slots[i]);
                 }
-                else if (i < 16)
+                else if (i >= 12 && i <= 15)
                 {
                     groupD.Controls.Add(slots[i]);
+                }
+                else if (i >= 16 && i <= 19)
+                {
+                    groupE.Controls.Add(slots[i]);
+                }
+                else if (i >= 20 && i <= 23)
+                {
+                    groupF.Controls.Add(slots[i]);
+                }
+                else if (i >= 24 && i <= 27)
+                {
+                    groupG.Controls.Add(slots[i]);
+                }
+                else if (i >= 28 && i <= 31)
+                {
+                    groupH.Controls.Add(slots[i]);
                 }
             }
 
@@ -459,127 +575,21 @@ namespace TournamentManagerPro
             team43.Location = new Point(0, 152);
             team44.Location = new Point(0, 228);
 
-        }
+            team52.Location = new Point(0, 76);
+            team53.Location = new Point(0, 152);
+            team54.Location = new Point(0, 228);
 
+            team62.Location = new Point(0, 76);
+            team63.Location = new Point(0, 152);
+            team64.Location = new Point(0, 228);
 
-        /**
-         * Manage teams to the groups
-         */
-        public void ManageTeams(BorderedLabel[] slots, string[] teams)
-        {
+            team72.Location = new Point(0, 76);
+            team73.Location = new Point(0, 152);
+            team74.Location = new Point(0, 228);
 
-            Shuffle(teams);
-
-            if (
-                MessageBox.Show(
-                    "Започване на разпределението!  За всеки отбор натиснете ОК за приемане на подредбата на отбора" +
-                    " или Отказ за да прекратите разпределението.",
-                    "Team - Groupe Model",
-                    MessageBoxButtons.OKCancel,
-                    MessageBoxIcon.Information
-                ) == DialogResult.OK
-            )
-            {
-
-                for (int i = 0; i < teams.Length; i++)
-                {
-                    if (i <= 3)
-                    {
-                        if
-                        (
-                            MessageBox.Show
-                            (
-                                $"Отбор {i + 1} в група 1 е {teams[i]}.",
-                                "Groupe Model",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Information
-                            )
-                            == DialogResult.OK
-                        )
-                        {
-                            slots[i].Text = teams[i];
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                    else if (i >= 4 && i <= 7)
-                    {
-                        if
-                        (
-                            MessageBox.Show
-                            (
-                                $"Отбор {i - 3} в група 2 е {teams[i]}.",
-                                "Groupe Model",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Information
-                            )
-                            == DialogResult.OK
-                        )
-                        {
-                            slots[i].Text = teams[i];
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                    else if (i >= 8 && i <= 11)
-                    {
-                        if
-                        (
-                            MessageBox.Show
-                            (
-                                $"Отбор {i - 7} в група 3 е {teams[i]}.",
-                                "Groupe Model",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Information
-                            )
-                            == DialogResult.OK
-                        )
-                        {
-                            slots[i].Text = teams[i];
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                    else if (i >= 12 && i <= 15)
-                    {
-                        if
-                        (
-                            MessageBox.Show
-                            (
-                                $"Отбор {i - 11} в група 4 е {teams[i]}.",
-                                "Groupe Model",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Information
-                            )
-                            == DialogResult.OK
-                        )
-                        {
-                            slots[i].Text = teams[i];
-                            if (i == 15)
-                            {
-                                MessageBox.Show(
-                                    "Всички отбори са разпределени успешно!",
-                                    "Team - Groupe Model",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Asterisk
-                                );
-                            }
-                        }
-                        else
-                        {
-                            break;
-                        }
-
-                    }
-                }
-
-            }
+            team82.Location = new Point(0, 76);
+            team83.Location = new Point(0, 152);
+            team84.Location = new Point(0, 228);
 
         }
 
@@ -638,8 +648,8 @@ namespace TournamentManagerPro
                     image,
                     new Rectangle(0, 0, bmp.Width, bmp.Height),
                     0,
-                    0, 
-                    image.Width, 
+                    0,
+                    image.Width,
                     image.Height,
                     GraphicsUnit.Pixel,
                     attributes
@@ -648,6 +658,217 @@ namespace TournamentManagerPro
 
             return bmp;
         }
+
+
+        /**
+        * Manage teams to the groups
+        */
+        public void ManageTeams(BorderedLabel[] slots, string[] teams)
+        {
+
+            Shuffle(teams);
+
+            if (
+                MessageBox.Show(
+                    "Започване на разпределението!  За всеки отбор натиснете ОК за приемане на подредбата на отбора" +
+                    " или Отказ за да прекратите разпределението.",
+                    "Team - Groupe Model",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Information
+                ) == DialogResult.OK
+            )
+            {
+
+                for (int i = 0; i < teams.Length; i++)
+                {
+                    if (i <= 3)
+                    {
+                        if
+                        (
+                            MessageBox.Show
+                            (
+                                $"Отбор {i + 1} в група A е {teams[i]}.",
+                                "Groupe Model",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information
+                            )
+                            == DialogResult.OK
+                        )
+                        {
+                            slots[i].Text = teams[i];
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    else if (i >= 4 && i <= 7)
+                    {
+                        if
+                        (
+                            MessageBox.Show
+                            (
+                                $"Отбор {i - 3} в група B е {teams[i]}.",
+                                "Groupe Model",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information
+                            )
+                            == DialogResult.OK
+                        )
+                        {
+                            slots[i].Text = teams[i];
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    else if (i >= 8 && i <= 11)
+                    {
+                        if
+                        (
+                            MessageBox.Show
+                            (
+                                $"Отбор {i - 7} в група C е {teams[i]}.",
+                                "Groupe Model",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information
+                            )
+                            == DialogResult.OK
+                        )
+                        {
+                            slots[i].Text = teams[i];
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    else if (i >= 12 && i <= 15)
+                    {
+                        if
+                        (
+                            MessageBox.Show
+                            (
+                                $"Отбор {i - 11} в група D е {teams[i]}.",
+                                "Groupe Model",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information
+                            )
+                            == DialogResult.OK
+                        )
+                        {
+                            slots[i].Text = teams[i];
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                    }
+                    else if (i >= 16 && i <= 19)
+                    {
+                        if
+                        (
+                            MessageBox.Show
+                            (
+                                $"Отбор {i - 15} в група E е {teams[i]}.",
+                                "Groupe Model",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information
+                            )
+                            == DialogResult.OK
+                        )
+                        {
+                            slots[i].Text = teams[i];
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                    }
+                    else if (i >= 20 && i <= 23)
+                    {
+                        if
+                        (
+                            MessageBox.Show
+                            (
+                                $"Отбор {i - 19} в група F е {teams[i]}.",
+                                "Groupe Model",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information
+                            )
+                            == DialogResult.OK
+                        )
+                        {
+                            slots[i].Text = teams[i];
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                    }
+                    else if (i >= 24 && i <= 27)
+                    {
+                        if
+                        (
+                            MessageBox.Show
+                            (
+                                $"Отбор {i - 23} в група G е {teams[i]}.",
+                                "Groupe Model",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information
+                            )
+                            == DialogResult.OK
+                        )
+                        {
+                            slots[i].Text = teams[i];
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                    }
+                    else if (i >= 28 && i <= 31)
+                    {
+                        if
+                        (
+                            MessageBox.Show
+                            (
+                                $"Отбор {i - 27} в група H е {teams[i]}.",
+                                "Groupe Model",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information
+                            )
+                            == DialogResult.OK
+                        )
+                        {
+                            slots[i].Text = teams[i];
+                            if (i == 31)
+                            {
+                                MessageBox.Show(
+                                    "Всички отбори са разпределени успешно!",
+                                    "Team - Groupe Model",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Asterisk
+                                );
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+
     }
-   
+
 }

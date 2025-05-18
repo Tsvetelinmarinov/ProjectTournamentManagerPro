@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="GroupeModel.cs" />
+    <None Include="EuroModel.cs" />
   </ItemGroup>
 
   <ItemGroup>

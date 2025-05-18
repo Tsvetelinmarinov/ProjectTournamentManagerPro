@@ -115,7 +115,7 @@ namespace TournamentManagerPro
                 UefaChampionsLeague.ForeColor = Color.FromArgb(60, 110, 110, 110);
                 UefaChampionsLeague.BackColor = Color.GhostWhite;
             };
-            UefaChampionsLeague.Click += (sender, eventArgs) => { new GroupeModel().BuildGUIWith32(); };
+            UefaChampionsLeague.Click += (sender, eventArgs) => { new ChampionsLeagueModel(); };
             tip.SetToolTip(UefaChampionsLeague, "Разпредели отборите от Шампионска Лига");
             Controls.Add(UefaChampionsLeague);
 
@@ -138,7 +138,7 @@ namespace TournamentManagerPro
                 UefaEuropeLeague.ForeColor = Color.FromArgb(60, 110, 110, 110);
                 UefaEuropeLeague.BackColor = Color.GhostWhite;
             };
-            UefaEuropeLeague.Click += (sender, eventArgs) => { new GroupeModel().BuildGUIWith32(); };
+            UefaEuropeLeague.Click += (s, e) => { new UefaEuropeLeagueModel(); };
             tip.SetToolTip(UefaEuropeLeague, "Разпредели отборите от Лига Европа");
             Controls.Add(UefaEuropeLeague);
 
@@ -161,7 +161,7 @@ namespace TournamentManagerPro
                 UefaEuro.ForeColor = Color.FromArgb(60, 110, 110, 110);
                 UefaEuro.BackColor = Color.GhostWhite;
             };
-            UefaEuro.Click += (sender, eventArgs) => { new GroupeModel().BuildGUIWith16(); };
+            UefaEuro.Click += (sender, eventArgs) => { new EuroModel(); };
             tip.SetToolTip(UefaEuro, "Разпредели отборите от Европейското футболно първенство");
             Controls.Add(UefaEuro);
 
@@ -184,7 +184,7 @@ namespace TournamentManagerPro
                 FifaWorldCup.ForeColor = Color.FromArgb(60, 110, 110, 110);
                 FifaWorldCup.BackColor = Color.GhostWhite;
             };
-            FifaWorldCup.Click += (sender, eventArgs) => { new GroupeModel().BuildGUIWith32(); };
+            FifaWorldCup.Click += (s, e) => { new WorldCupModel(); };
             tip.SetToolTip(FifaWorldCup, "Разпредели отборите от Световното първенство по футбол");
             Controls.Add(FifaWorldCup);
 

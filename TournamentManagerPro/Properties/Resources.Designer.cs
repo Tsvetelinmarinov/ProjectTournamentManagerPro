@@ -63,9 +63,29 @@ namespace TournamentManagerPro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap championsLg {
+            get {
+                object obj = ResourceManager.GetObject("championsLg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap euroFrance {
             get {
                 object obj = ResourceManager.GetObject("euroFrance", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap europeLeague {
+            get {
+                object obj = ResourceManager.GetObject("europeLeague", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +126,16 @@ namespace TournamentManagerPro.Properties {
         public static System.Drawing.Bitmap Pes2013 {
             get {
                 object obj = ResourceManager.GetObject("Pes2013", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap worldCup {
+            get {
+                object obj = ResourceManager.GetObject("worldCup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
