@@ -24,16 +24,16 @@ namespace TournamentManagerPro
         private PictureBox info;
 
         //UEFA Champions League
-        private BorderedLabel UefaChampionsLeague;
+        private Button UefaChampionsLeague;
 
         //UEFA Europe League
-        private BorderedLabel UefaEuropeLeague;
+        private Button UefaEuropeLeague;
 
         //FIFA World Cup
-        private BorderedLabel FifaWorldCup;
+        private Button FifaWorldCup;
 
         //UEFA Euro
-        private BorderedLabel UefaEuro;
+        private Button UefaEuro;
 
         //ToolTip for the labels/buttons
         private ToolTip tip = new ToolTip();
@@ -97,25 +97,22 @@ namespace TournamentManagerPro
             Controls.Add(info);
 
             //UEFA Champions League
-            UefaChampionsLeague = new BorderedLabel()
+            UefaChampionsLeague = new Button()
             {
                 Text = "UEFA Champions League",
                 Font = new Font("Cascadia Code", 16, FontStyle.Italic),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Bounds = new Rectangle(70, 400, 450, 80),
                 ForeColor = Color.FromArgb(60, 110, 110, 110),
-                BorderColor = Color.FromArgb(60, 110, 110, 110)
             };
             UefaChampionsLeague.MouseEnter += (sender, eventArgs) =>
             {
                 UefaChampionsLeague.ForeColor = Color.Black;
-                UefaChampionsLeague.BorderColor = Color.DarkBlue;
                 UefaChampionsLeague.BackColor = Color.FromArgb(10, 110, 110, 250);
             };
             UefaChampionsLeague.MouseLeave += (sender, eventArgs) =>
             {
                 UefaChampionsLeague.ForeColor = Color.FromArgb(60, 110, 110, 110);
-                UefaChampionsLeague.BorderColor = Color.FromArgb(60, 110, 110, 110);
                 UefaChampionsLeague.BackColor = Color.GhostWhite;
             };
             UefaChampionsLeague.Click += (sender, eventArgs) => { new GroupeModel().BuildGUIWith32(); };
@@ -123,25 +120,22 @@ namespace TournamentManagerPro
             Controls.Add(UefaChampionsLeague);
 
             //UEFA Europe League
-            UefaEuropeLeague = new BorderedLabel()
+            UefaEuropeLeague = new Button()
             {
                 Text = "UEFA Europe League",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = UefaChampionsLeague.Font,
                 ForeColor = UefaChampionsLeague.ForeColor,
-                BorderColor = UefaChampionsLeague.BorderColor,
                 Bounds = new Rectangle(521, 400, 450, 80)
             };
             UefaEuropeLeague.MouseEnter += (sender, eventArgs) =>
             {
                 UefaEuropeLeague.ForeColor = Color.Black;
-                UefaEuropeLeague.BorderColor = Color.DarkBlue;
                 UefaEuropeLeague.BackColor = Color.FromArgb(10, 110, 110, 250);
             };
             UefaEuropeLeague.MouseLeave += (sender, eventArgs) =>
             {
                 UefaEuropeLeague.ForeColor = Color.FromArgb(60, 110, 110, 110);
-                UefaEuropeLeague.BorderColor = Color.FromArgb(60, 110, 110, 110);
                 UefaEuropeLeague.BackColor = Color.GhostWhite;
             };
             UefaEuropeLeague.Click += (sender, eventArgs) => { new GroupeModel().BuildGUIWith32(); };
@@ -149,25 +143,22 @@ namespace TournamentManagerPro
             Controls.Add(UefaEuropeLeague);
 
             //UEFA Euro France
-            UefaEuro = new BorderedLabel()
+            UefaEuro = new Button()
             {
                 Text = "UEFA Euro France",
                 Font = UefaChampionsLeague.Font,
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = UefaChampionsLeague.ForeColor,
-                BorderColor = UefaChampionsLeague.BorderColor,
                 Bounds = new Rectangle(70, 481, 450, 80)
             };
             UefaEuro.MouseEnter += (sender, eventArgs) =>
             {
                 UefaEuro.ForeColor = Color.Black;
-                UefaEuro.BorderColor = Color.DarkBlue;
                 UefaEuro.BackColor = Color.FromArgb(10, 110, 110, 250);
             };
             UefaEuro.MouseLeave += (sender, eventArgs) =>
             {
                 UefaEuro.ForeColor = Color.FromArgb(60, 110, 110, 110);
-                UefaEuro.BorderColor = Color.FromArgb(60, 110, 110, 110);
                 UefaEuro.BackColor = Color.GhostWhite;
             };
             UefaEuro.Click += (sender, eventArgs) => { new GroupeModel().BuildGUIWith16(); };
@@ -175,25 +166,22 @@ namespace TournamentManagerPro
             Controls.Add(UefaEuro);
 
             //Fifa World Cup
-            FifaWorldCup = new BorderedLabel()
+            FifaWorldCup = new Button()
             {
                 Text = "FIFA World Cup",
                 Font = UefaChampionsLeague.Font,
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = UefaChampionsLeague.ForeColor,
-                BorderColor = UefaChampionsLeague.BorderColor,
                 Bounds = new Rectangle(521, 481, 450, 80)
             };
             FifaWorldCup.MouseEnter += (s, e) =>
             {
                 FifaWorldCup.ForeColor = Color.Black;
-                FifaWorldCup.BorderColor = Color.DarkBlue;
                 FifaWorldCup.BackColor = Color.FromArgb(10, 110, 110, 250);
             };
             FifaWorldCup.MouseLeave += (s, e) =>
             {
                 FifaWorldCup.ForeColor = Color.FromArgb(60, 110, 110, 110);
-                FifaWorldCup.BorderColor = Color.FromArgb(60, 110, 110, 110);
                 FifaWorldCup.BackColor = Color.GhostWhite;
             };
             FifaWorldCup.Click += (sender, eventArgs) => { new GroupeModel().BuildGUIWith32(); };
