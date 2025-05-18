@@ -208,7 +208,7 @@ namespace TournamentManagerPro
             StartPosition = FormStartPosition.CenterScreen;
             BackColor = Color.WhiteSmoke;
             Icon = Properties.Resources.icon;
-            BackgroundImage = SetImage(Properties.Resources.euroFrance, 0.4f);
+            BackgroundImage = SetImage(Properties.Resources.euroFrance, 0.5f);
             BackgroundImageLayout = ImageLayout.Stretch;
             Visible = true;
             MaximizeBox = false;
