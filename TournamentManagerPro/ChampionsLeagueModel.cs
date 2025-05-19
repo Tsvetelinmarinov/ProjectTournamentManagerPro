@@ -633,11 +633,11 @@ namespace TournamentManagerPro
 
 
         /**
-         * Change the opacity of the background
+         * Set image background with option for opacity
          */
         private Image SetImage(Image image, float opacity)
         {
-            // opacity: 0.0 (напълно прозрачно) до 1.0 (напълно непрозрачно)
+            //видимост: 0.0 (напълно прозрачно) до 1.0 (напълно непрозрачно)
             Bitmap bmp = new Bitmap(image.Width, image.Height);
 
             using (Graphics g = Graphics.FromImage(bmp))
