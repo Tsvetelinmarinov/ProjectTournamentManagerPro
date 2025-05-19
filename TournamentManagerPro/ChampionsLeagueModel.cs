@@ -160,7 +160,7 @@ namespace TournamentManagerPro
         private BorderedLabel team84;
 
         //Create array of BorderedLabels(the slots) to use it in the void that manage the teams
-        private BorderedLabel[] slots = new BorderedLabel[32];
+        private readonly BorderedLabel[] slots = new BorderedLabel[32];
 
         //Button "Manage"
         private Button manage;
@@ -172,10 +172,7 @@ namespace TournamentManagerPro
         private Button fastManage;
 
         //ToolTip
-        private ToolTip tip = new ToolTip();
-
-        //ForeColor for the labels
-        private Color definedFore = Color.FromArgb(100, 50, 50, 50);
+        private readonly ToolTip tip = new();
 
 
         /*
@@ -478,7 +475,7 @@ namespace TournamentManagerPro
         {
             // Initialize the slots array with instances of BorderedLabel
             BorderedLabel[] slots =
-            {
+            [
                 team11 = new BorderedLabel(),
                 team12 = new BorderedLabel(),
                 team13 = new BorderedLabel(),
@@ -511,7 +508,7 @@ namespace TournamentManagerPro
                 team82 = new BorderedLabel(),
                 team83 = new BorderedLabel(),
                 team84 = new BorderedLabel(),
-            };
+            ];
 
             // Configure each slot
             foreach (BorderedLabel slot in slots)
@@ -599,18 +596,15 @@ namespace TournamentManagerPro
         /**
          * Shuffle teams
          */
-        private void Shuffle(string[] teams)
+        private static void Shuffle(string[] teams)
         {
 
-            Random randNum = new Random();
+            Random randNum = new();
 
             for (int i = teams.Length - 1; i > 0; i--)
             {
                 int j = randNum.Next(i + 1);
-
-                string buffer = teams[i];
-                teams[i] = teams[j];
-                teams[j] = buffer;
+                (teams[j], teams[i]) = (teams[i], teams[j]);
             }
 
         }
@@ -633,19 +627,23 @@ namespace TournamentManagerPro
 
 
         /**
-         * Change the opacity of the background
+         * Set image background with option for opacity
          */
-        private Image SetImage(Image image, float opacity)
+        private static Bitmap SetImage(Image image, float opacity)
         {
-            // opacity: 0.0 (напълно прозрачно) до 1.0 (напълно непрозрачно)
-            Bitmap bmp = new Bitmap(image.Width, image.Height);
+            //видимост: 0.0 (напълно прозрачно) до 1.0 (напълно непрозрачно)
+            Bitmap bmp = new(image.Width, image.Height);
 
             using (Graphics g = Graphics.FromImage(bmp))
             {
-                ColorMatrix matrix = new ColorMatrix();
-                matrix.Matrix33 = opacity; // Задава алфа канала
-                ImageAttributes attributes = new ImageAttributes();
+                ColorMatrix matrix = new()
+                {
+                    Matrix33 = opacity // Задава алфа канала
+                };
+
+                ImageAttributes attributes = new();
                 attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
                 g.DrawImage(
                     image,
                     new Rectangle(0, 0, bmp.Width, bmp.Height),

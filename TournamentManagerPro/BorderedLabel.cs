@@ -37,11 +37,9 @@ namespace TournamentManagerPro
 
             base.OnPaint(e);
 
-            using (Pen writer = new Pen(BorderColor, BorderThickness))
-            {
-                Rectangle button = new Rectangle(0, 0, Width - 1, Height - 1);
-                e.Graphics.DrawRectangle(writer, button);
-            }
+            using Pen writer = new(BorderColor, BorderThickness);
+            Rectangle button = new(0, 0, Width - 1, Height - 1);
+            e.Graphics.DrawRectangle(writer, button);
 
         }
 

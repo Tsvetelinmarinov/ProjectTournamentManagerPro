@@ -36,7 +36,7 @@ namespace TournamentManagerPro
         private Button UefaEuro;
 
         //ToolTip for the labels/buttons
-        private ToolTip tip = new ToolTip();
+        private readonly ToolTip tip = new();
 
 
         /*
